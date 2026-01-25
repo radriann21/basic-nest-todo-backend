@@ -1,7 +1,10 @@
 import { Column, DataType, Model, Table, HasMany } from 'sequelize-typescript';
 import { Task } from 'src/tasks/entities/task.entity';
 
-@Table
+@Table({
+  tableName: 'users',
+  timestamps: false,
+})
 export class User extends Model {
   @Column({
     type: DataType.UUIDV4,
@@ -14,10 +17,10 @@ export class User extends Model {
   declare username: string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  declare firstName: string;
+  declare first_name: string;
 
   @Column({ type: DataType.STRING, allowNull: false })
-  declare lastName: string;
+  declare last_name: string;
 
   @Column({ type: DataType.STRING, allowNull: false })
   declare email: string;
@@ -26,10 +29,7 @@ export class User extends Model {
   declare password: string;
 
   @Column({ type: DataType.DATE, allowNull: false, defaultValue: DataType.NOW })
-  declare createdAt: string;
-
-  @Column({ type: DataType.DATE, allowNull: false, defaultValue: DataType.NOW })
-  declare updatedAt: string;
+  declare created_at: Date;
 
   @HasMany(() => Task)
   declare tasks: Task[];
