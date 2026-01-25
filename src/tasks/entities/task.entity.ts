@@ -30,10 +30,10 @@ export class Task extends Model {
   declare completed: boolean;
 
   @Column({ type: DataType.DATE, allowNull: false, defaultValue: DataType.NOW })
-  declare createdAt: Date;
+  declare created_at: Date;
 
   @Column({ type: DataType.DATE, allowNull: false, defaultValue: DataType.NOW })
-  declare updatedAt: Date;
+  declare updated_at: Date;
 
   @ForeignKey(() => User)
   @Column({ type: DataType.UUID, allowNull: false })
