@@ -1,8 +1,9 @@
-import 'dotenv/config';
+// eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+require('dotenv').config();
 
-export default {
+module.exports = {
   development: {
-    username: process.env.DB_USERNAME,
+    username: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     host: process.env.DB_HOST,
