@@ -19,7 +19,7 @@ import { Task } from './tasks/entities/task.entity';
     SequelizeModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({
-        dialect: 'postgres',
+        dialect: 'postgres' as const,
         host: config.get('DB_HOST'),
         port: Number(config.get('DB_PORT')),
         username: config.get('DB_USER'),
@@ -27,7 +27,7 @@ import { Task } from './tasks/entities/task.entity';
         database: config.get('DB_NAME'),
         models: [User, Task],
         autoLoadModels: true,
-        synchronize: true,
+        synchronize: false,
       }),
     }),
     UsersModule,
